@@ -33,9 +33,20 @@ namespace WordCounterApp
 
             try
             {
+                Console.WriteLine(string.Format("{0:MMddyyyyhhmmss} Started Execution.", DateTime.Now));
+
                 var api = new Counter();
-                var result = api.CountWords(filename);
-                Console.WriteLine(string.Format("{0:MMddyyyyhhmmss} Total Words in File {1}", DateTime.Now, result));
+                var totalWords = api.CountWords(filename);
+                Console.WriteLine(string.Format("Total words in file {0}", totalWords));
+
+                Console.WriteLine(string.Format("Unique words in file"));
+                var uniqueWordMetrics = api.CountUniqueWords(filename);
+                foreach (var metric in uniqueWordMetrics)
+                {
+                    Console.WriteLine(string.Format("{0} {1}", metric.Word, metric.Count));
+                }
+
+                
 
             }
             catch (FileNotFoundException ex)
@@ -50,7 +61,7 @@ namespace WordCounterApp
             }
             finally
             {
-                Console.WriteLine(string.Format("{0:MMddyyyyhhmmss} Finiesh Execution.  Results: {1}", DateTime.Now, "Finished Successly"));
+                Console.WriteLine(string.Format("{0:MMddyyyyhhmmss} Finished Execution.  Results: {1}", DateTime.Now, "Finished Successly"));
             }
             return 0;
 

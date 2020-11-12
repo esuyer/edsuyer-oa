@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Text;
 
 namespace WordCounterApi
 {
@@ -14,5 +15,16 @@ namespace WordCounterApi
                 .Sum();
 
         }
+
+        public IOrderedEnumerable<WordMetric> CountUniqueWords(string filename)
+        {
+            var text = File.ReadAllText(filename);
+            string[] words = text.Split(new char[] { ' ' },
+                StringSplitOptions.RemoveEmptyEntries);
+           
+            return words.GroupBy(x => x).Select(y => new WordMetric { Word = y.Key, Count = y.Count() }).OrderBy(z => z.Count);
+        }
+
     }
+
 }

@@ -3,3 +3,11 @@
 ################################################################################
 
 /OaInterviewQuestion/TestResults
+/OaInterviewQuestion/packages
+/OaInterviewQuestion/.vs/OaInterviewQuestion
+/OaInterviewQuestion/src/app/WordCounterApi/bin/Debug/netstandard2.0
+/OaInterviewQuestion/src/app/WordCounterApi/obj
+/OaInterviewQuestion/src/app/WordCounterApp/bin/Debug
+/OaInterviewQuestion/src/app/WordCounterApp/obj/Debug
+/OaInterviewQuestion/src/tests/WordCounterApi.Tests/bin/Debug
+/OaInterviewQuestion/src/tests/WordCounterApi.Tests/obj/Debug
